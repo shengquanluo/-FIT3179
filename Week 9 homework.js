@@ -1,44 +1,47 @@
 var yourVlSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v4.json",
   description: "A simple bar chart with embedded data.",
-  title: {text:"World University Rankings",fontSize:30},
+  title: { text: "World University Ranking Score", fontSize: 30 },
   width: 1200,
   height: 500,
-  data: 
-    {
-      url: "world.json",
-      format: {
-        type: "topojson",
-        feature: "world",
-      },
+  data: {
+    url: "world.json",
+    format: {
+      type: "topojson",
+      feature: "world",
     },
+  },
   transform: [
     {
       lookup: "properties.name",
       from: {
-        data: {url:'data.csv'},
+        data: { url: "data.csv" },
         key: "country",
         fields: ["score"],
       },
-      default: 1,
+
+      default: 0,
     },
+    { calculate: "datum.score*1", as: "score_mean" },
   ],
   projection: { type: "equirectangular" },
-  mark: { type: "geoshape" },
+  mark: { type: "geoshape","stroke": "gray" },
   encoding: {
     fill: {
-      field: "score",
+      field: "score_mean",
       type: "quantitative",
-      scale: { type: "linear", domain: [40, 53], scheme: "purplebluegreen" },
-    },
-    stroke: {
-      field: "type",
+      scale:{
+        type:'quantitative',
+        domain:[40,55],
+        schema:'purpleblue'
+      }
     },
 
     tooltip: [
       { field: "properties.name", type: "norminal", title: "Country" },
-      { field: "score", type: "quantitative", title: "Score", "format": ".2f" },
+      { field: "score_mean", type: "quantitative", title: "Score", format: ".2f" },
     ],
   },
 };
 vegaEmbed("#countryViz", yourVlSpec);
+
