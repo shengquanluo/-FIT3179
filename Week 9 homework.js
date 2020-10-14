@@ -44,4 +44,3 @@ var yourVlSpec = {
   },
 };
 vegaEmbed("#countryViz", yourVlSpec);
-
