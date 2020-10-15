@@ -5,7 +5,7 @@ var yourVlSpec = {
   width: 1200,
   height: 500,
   data: {
-    url: "world.json",
+    url: "https://raw.githubusercontent.com/shengquanluo/FIT3179/main/world.json",
     format: {
       type: "topojson",
       feature: "world",
@@ -15,7 +15,7 @@ var yourVlSpec = {
     {
       lookup: "properties.name",
       from: {
-        data: { url: "data.csv" },
+        data: { url: "https://raw.githubusercontent.com/shengquanluo/FIT3179/main/data.csv" },
         key: "country",
         fields: ["score"],
       },
