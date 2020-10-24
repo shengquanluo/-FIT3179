@@ -1,4 +1,4 @@
-{
+var yourVlSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v4.json",
   description: "A simple bar chart with embedded data.",
   title: { text: "World University Ranking Score", fontSize: 30 },
@@ -44,3 +44,4 @@
   },
 };
 
+vegaEmbed("#countryViz", yourVlSpec);
