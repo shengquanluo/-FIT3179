@@ -10,8 +10,30 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
 </head>
 
+
 <body>
-    <div id="countryViz"></div>
+
+<h1>Week 10 homework</h1>
+
+<h2>choropleth map</h2>
+<div id="choropleth_map"></div>
+
+<h2>bar chart</h2>
+<div id="bar_chart"></div>
+
+    
+<script type="text/javascript">
+
+    var map = "h10 map.json";
+    
+    vegaEmbed("#countryViz", map);
+
+
+
+    var bar = "h10 bar.json";
+    
+    vegaEmbed("#barViz", bar);
+    
+</script>    
 </body>
-    <script src="week9 homework.js"></script>
 </html>
