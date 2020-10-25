@@ -1,11 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A simple bar chart with embedded data.",
-  "title": {
-    "text": "World University Ranking Score",
-    "fontSize": 20,
-    "color": "#3e4149"
-  },
+
   "data": {
     "url": "https://raw.githubusercontent.com/shengquanluo/FIT3179/main/world.json",
     "format": {
