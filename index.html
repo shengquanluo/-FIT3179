@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  
+
+  
 </head>
-
-
 <body>
 
 <h1>Week 10 homework</h1>
 
+<h2>World universities ranking</h2>
+<div id="choropleth_map"></div>
 
-    
+<h2>America 's annual ranking </h2>
+<div id="bar_chart"></div>
+
 <script type="text/javascript">
+  
+  var vis1 = "h10map.json";
+  
+  vegaEmbed('#choropleth_map', vis1).then(function(result) {
+ 
+  }).catch(console.error);
+  
+  var vis2 = "h10bar.json";
+  
+  vegaEmbed('#bar_chart', vis2).then(function(result) {
 
-    var map = "h10map.json";
-    
-    vegaEmbed("#countryViz", map);
+  }).catch(console.error);
+</script>
 
-
-
-    var bar = "h10bar.json";
-    
-    vegaEmbed("#barViz", bar);
-    
-</script>    
 </body>
 </html>
