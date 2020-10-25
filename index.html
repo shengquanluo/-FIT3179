@@ -21,13 +21,17 @@
 
     var map = "h10map.json";
     
-    vegaEmbed("#countryViz", map);
+    vegaEmbed("#countryViz", map).then(function(result) {
+
+  }).catch(console.error);
 
 
 
     var bar = "h10bar.json";
     
-    vegaEmbed("#barViz", bar);
+    vegaEmbed("#barViz", bar).then(function(result) {
+
+  }).catch(console.error);
     
 </script>    
 </body>
