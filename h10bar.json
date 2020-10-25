@@ -1,11 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "description": "A simple bar chart with embedded data.",
-    "title": {
-        "text": "America's annual university rankings",
-        "fontSize": 30,
-        "color": "#3e4149"
-    },
+    
     "width": 1600,
     "height": 600,
     "data": {
