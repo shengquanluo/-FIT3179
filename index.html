@@ -1,39 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  
-
-  
+    
 </head>
+
 <body>
+    <div style="background-image: url(./t.jpg);
+    height: 300px; 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+    ">
+        <h1 style="padding: 0;margin: 0;"> World University Ranking Analysis </h1>
+        <div style="width: 800px;height: 400px; color: white; line-height: 2rem;font-size: 1.5rem;">
+            <p> The United States is still the country with the strongest higher education. Eight of the top 10
+                universities in the world belong to the United States and the other two are the United Kingdom. The
+                following is a specific data visualization analysis. </p>
 
-<h1>Week 10 homework</h1>
+        </div>
 
-<h2>World universities ranking</h2>
-<div id="choropleth_map"></div>
 
-<h2>America 's annual ranking </h2>
-<div id="bar_chart"></div>
+    </div>
+    <hr>
 
+    <section style="display:flex;">
+        <div id="top10Viz"> </div>
+        <div>
+            <p> The Harvard university was 4 years in a row in the first place, Its fractional line maintains at 100 all the time. 
+                Yale university entered the rankings in 2012-2014, but not in 2015. There are also some universities that come from behind, 
+                such as the University of Chicago and Cornell University, The University of Chicago did not enter the rankings in 2012, 
+                but it has been in the rankings from 2013 to 2015. And Cornell University was ranked only in 2015. </p>
+           
+
+        </div>
+
+    </section>
+    <hr>
+
+    <section style="display">
+        <div id="countryViz"> </div>
+       
+
+    </section>
+    <hr>
+    <section style="display">
+        <div id="barViz"> </div>
+        
+
+    </section>
+    <hr>
+
+    <section style="display">
+        <div id="scatterViz"> </div>
+       
+    </section>
+</body>
 <script type="text/javascript">
-  
-  var vis1 = "h10map.json";
-  
-  vegaEmbed('#choropleth_map', vis1).then(function(result) {
- 
-  }).catch(console.error);
-  
-  var vis2 = "h10bar.json";
-  
-  vegaEmbed('#bar_chart', vis2).then(function(result) {
 
-  }).catch(console.error);
+    var map = "map.json"
+    vegaEmbed("#countryViz", map);
+
+
+
+    var bar = "bar.json";
+    vegaEmbed("#barViz", bar);
+
+
+    var scatter = "scatter.json"
+    vegaEmbed("#scatterViz", scatter);
+
+
+
+    var top_10 = "top_10.json"
+    vegaEmbed("#top10Viz", top_10);
+
+
 </script>
 
-</body>
 </html>

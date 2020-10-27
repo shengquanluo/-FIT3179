@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "config": {
+    "axis": {
+      "labelAngle": 360,
+      "labelFontSize": 20,
+      "titleFontSize": 20
+    }
+  },
+  "title": {
+    "text": "The trend of the top 10 universities in the world from 2012 to 2015",
+    "fontSize": 25,
+    "color": "#3e4149"
+  },
+  "width": 1200,
+  "height": 700,
+  "data": { "url": "cwurData.csv" },
+
+  "transform": [
+    {
+      "filter": "datum.world_rank<=10"
+    }
+  ],
+
+  "encoding": {
+    "x": {
+      "field": "year"
+    },
+    "y": {
+      "field": "score",
+      "type": "quantitative",
+      "scale": { "type": "quantile", "domainMin": 75 }
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "line" },
+      "encoding": {
+        "color": { "field": "institution" }
+      }
+    },
+
+    {
+      "mark": { "type": "point", "filled": true },
+      "encoding": {
+        "color": { "field": "institution" },
+        "opacity": { "value": 1 },
+        "size": { "value": 550 },
+        "tooltip": [
+          {
+            "field": "country"
+          },
+          {
+            "field": "institution"
+          },
+          {
+            "field": "score"
+          }
+        ]
+      }
+    },
+    {
+      "mark": "text",
+      "encoding": {
+        "text": {
+          "field": "world_rank"
+        },
+        "color": { "value": "white" }
+      }
+    }
+  ]
+}

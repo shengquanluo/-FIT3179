@@ -1,0 +1,136 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": {
+    "text": "Correlation between indicators that affect universities ranking",
+    "fontSize": 25,
+    "color": "#3e4149"
+  },
+  "repeat": {
+    "row": ["score", "quality_of_education"],
+    "column": ["alumni_employment","score"]
+  },
+  "spec": {
+    "data": { "url": "cwurData.csv" },
+    "mark": { "type": "point", "tooltip": true, "stroke": "white" },
+    "width": 550,
+    "height": 400,
+    "selection": {
+      "year_select": {
+        "type": "single",
+        "fields": ["year", "country"],
+        "init": { "year": "2015", "country": "United States of America" },
+        "bind": {
+          "year": {
+            "input": "select",
+            "options": ["2012", "2013", "2014", "2015"]
+          },
+          "country": {
+            "input": "select",
+            "options": [
+              "United States of America",
+              "United Kingdom",
+              "Japan",
+              "Switzerland",
+              "Israel",
+              "Canada",
+              "France",
+              "Sweden",
+              "South Korea",
+              "Italy",
+              "Germany",
+              "Netherlands",
+              "Finland",
+              "Norway",
+              "Australia",
+              "Denmark",
+              "Singapore",
+              "Russia",
+              "China",
+              "Taiwan",
+              "Belgium",
+              "South Africa",
+              "Spain",
+              "Brazil",
+              "Hong Kong",
+              "Ireland",
+              "Austria",
+              "New Zealand",
+              "Portugal",
+              "Thailand",
+              "Czech Republic",
+              "Malaysia",
+              "India",
+              "Greece",
+              "Mexico",
+              "Hungary",
+              "Argentina",
+              "Turkey",
+              "Poland",
+              "Saudi Arabia",
+              "Chile",
+              "Iceland",
+              "Slovenia",
+              "Estonia",
+              "Lebanon",
+              "Croatia",
+              "Colombia",
+              "Slovak Republic",
+              "Iran",
+              "Egypt",
+              "Serbia",
+              "Bulgaria",
+              "Lithuania",
+              "Uganda",
+              "United Arab Emirates",
+              "Uruguay",
+              "Cyprus",
+              "Romania",
+              "Puerto Rico"
+            ]
+          }
+        }
+      },
+      "brush": {
+        "type": "interval",
+        "resolve": "union",
+        "on": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
+        "translate": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
+        "zoom": "wheel![event.shiftKey]"
+      },
+
+      "grid": {
+        "type": "interval",
+        "resolve": "global",
+        "bind": "scales",
+        "translate": "[mousedown[!event.shiftKey], window:mouseup] > window:mousemove!",
+        "zoom": "wheel![!event.shiftKey]"
+      }
+    },
+    
+    "transform": [{ "filter": { "selection": "year_select" } }],
+    "encoding": {
+      "x": { "field": { "repeat": "column" }, "type": "quantitative" },
+      "y": {
+        "field": { "repeat": "row" },
+        "type": "quantitative",
+        "axis": { "minExtent": 30 }
+      },
+      "fill": {
+        "field": "score",
+        "scale": {
+          "type": "linear",
+          "domain": [0, 100],
+          "scheme": "reds"
+        }
+      },
+      "opacity": { "value": 0.5 },
+      "size": {
+        "field": "score",
+        "scale": {
+          "type": "linear",
+          "range": [55, 555]
+        }
+      }
+    }
+  }
+}

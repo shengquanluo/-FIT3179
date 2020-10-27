@@ -1,0 +1,137 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "description": "A simple bar chart with embedded data.",
+    "title": {
+        "text": "Each country's annual university rankings",
+        "fontSize": 30,
+        "color": "#3e4149"
+    },
+    "width": 1600,
+    "height": 600,
+    "data": {
+        "url": "cwurData.csv"
+    },
+    
+    "selection": {
+    "year_select": {
+        "type": "single",
+        "fields": [
+            "year",
+            "country"
+        ],
+        "init": {
+            "year": "2015",
+            "country": "United States of America"
+        },
+        "bind": {
+            "year": {
+                "input": "select",
+                "options": [
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015"
+                ]
+            },
+            "country": {
+                "input": "select",
+                "options": [
+                    "United States of America",
+                    "United Kingdom",
+                    "Japan",
+                    "Switzerland",
+                    "Israel",
+                    "Canada",
+                    "France",
+                    "Sweden",
+                    "South Korea",
+                    "Italy",
+                    "Germany",
+                    "Netherlands",
+                    "Finland",
+                    "Norway",
+                    "Australia",
+                    "Denmark",
+                    "Singapore",
+                    "Russia",
+                    "China",
+                    "Taiwan",
+                    "Belgium",
+                    "South Africa",
+                    "Spain",
+                    "Brazil",
+                    "Hong Kong",
+                    "Ireland",
+                    "Austria",
+                    "New Zealand",
+                    "Portugal",
+                    "Thailand",
+                    "Czech Republic",
+                    "Malaysia",
+                    "India",
+                    "Greece",
+                    "Mexico",
+                    "Hungary",
+                    "Argentina",
+                    "Turkey",
+                    "Poland",
+                    "Saudi Arabia",
+                    "Chile",
+                    "Iceland",
+                    "Slovenia",
+                    "Estonia",
+                    "Lebanon",
+                    "Croatia",
+                    "Colombia",
+                    "Slovak Republic",
+                    "Iran",
+                    "Egypt",
+                    "Serbia",
+                    "Bulgaria",
+                    "Lithuania",
+                    "Uganda",
+                    "United Arab Emirates",
+                    "Uruguay",
+                    "Cyprus",
+                    "Romania",
+                    "Puerto Rico"
+                ]
+            }
+        }
+    }
+},
+    
+    "transform": [
+        {"filter": { "selection": "year_select"}},
+        {"filter": "datum.world_rank<=100"}
+    ],
+    "mark": {
+        "type": "bar",
+        "tooltip": true,
+        "cornerRadiusEnd": 5
+    },
+    "encoding": {
+        "x": {
+            "field": "institution",
+            "type": "nominal",
+            "sort": {
+                "order": "descending"
+            }
+        },
+        "y": {
+            "field": "score",
+            "type": "quantitative"
+        },
+       
+        "fill": {
+            "field": "score",
+            "scale": {
+                "type": "linear",
+                "domain": [
+                    0,100
+                ],
+                "scheme": "oranges"
+            }
+        }
+    }
+}
