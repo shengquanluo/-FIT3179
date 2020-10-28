@@ -90,13 +90,6 @@
           }
         }
       },
-      "brush": {
-        "type": "interval",
-        "resolve": "union",
-        "on": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
-        "translate": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
-        "zoom": "wheel![event.shiftKey]"
-      },
 
       "grid": {
         "type": "interval",
