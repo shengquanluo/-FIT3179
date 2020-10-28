@@ -122,14 +122,6 @@
           "domain": [0, 100],
           "scheme": "reds"
         }
-      },
-      "opacity": { "value": 0.5 },
-      "size": {
-        "field": "score",
-        "scale": {
-          "type": "linear",
-          "range": [55, 555]
-        }
       }
     }
   }
