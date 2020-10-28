@@ -121,17 +121,6 @@
         "y": {
             "field": "score",
             "type": "quantitative"
-        },
-       
-        "fill": {
-            "field": "score",
-            "scale": {
-                "type": "linear",
-                "domain": [
-                    0,100
-                ],
-                "scheme": "oranges"
-            }
         }
     }
 }
