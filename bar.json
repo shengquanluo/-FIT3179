@@ -107,8 +107,7 @@
     ],
     "mark": {
         "type": "bar",
-        "tooltip": true,
-        "cornerRadiusEnd": 5
+        "tooltip": true
     },
     "encoding": {
         "x": {
