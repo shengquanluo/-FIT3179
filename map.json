@@ -44,7 +44,6 @@
       "field": "score_mean",
       "type": "quantitative",
       "scale": {
-        "type": "linear",
         "domain": [1, 55],
         "scheme": "oranges"
       }
